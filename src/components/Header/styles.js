@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.header`
-  margin-top: 74px;
+  margin-top: 7.4rem;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -9,18 +9,18 @@ export const Container = styled.header`
 `;
 
 export const InputSearchContainer = styled.div`
-  margin-top: 48px;
+  margin-top: 4.8rem;
   width: 100%;
 
   input {
     width: 100%;
     background: #fff;
     border: none;
-    border-radius: 25px;
-    height: 50px;
-    box-shadow: 0px 4px 10px 0px #0000000A;
+    border-radius: 2.5rem;
+    height: 5.0rem;
+    box-shadow: 0rem .4rem 1.0rem 0rem #0000000A;
     outline: 0;
-    padding: 0 16px;
+    padding: 0 1.6rem;
 
     &::placeholder {
       color: #BCBCBC;
