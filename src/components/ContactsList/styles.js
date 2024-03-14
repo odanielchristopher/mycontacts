@@ -10,7 +10,6 @@ export const Header = styled.header`
   justify-content: space-between;
 
   strong {
-    color: #222;
     font-size: 2.4rem;
   }
 
@@ -26,6 +25,75 @@ export const Header = styled.header`
     &:hover {
       background: ${({ theme }) => theme.colors.primary.main};
       color: #FFF;
+    }
+  }
+`;
+
+export const ListContainer = styled.div`
+  margin-top: 2.4rem;
+
+  header {
+    button {
+    align-items: center;
+    background: transparent;
+    border: none;
+    display: flex;
+    margin-bottom: .8rem;
+
+    span {
+      color: ${({ theme }) => theme.colors.primary.main};
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin-right: .8rem;
+    }
+  }
+  }
+`;
+
+export const Card = styled.div`
+  align-items: center;
+  background: #FFF;
+  border-radius: .4rem;
+  box-shadow: .0rem .4rem 1.0rem .0rem #0000000A;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.6rem;
+
+  & + & {
+    margin-top: 1.6rem;
+  }
+
+  .info {
+    .contact-name {
+      align-items: center;
+      display: flex;
+
+      small {
+        background: ${({ theme }) => theme.colors.primary.lighter};
+        border-radius: .4rem;
+        color: ${({ theme }) => theme.colors.primary.main};
+        font-weight: bold;
+        margin-left: .8rem;
+        padding: .4rem;
+        text-transform: uppercase;
+      }
+    }
+
+    span {
+      color: ${({ theme }) => theme.colors.gray[200]};
+      display: block;
+      font-size: 1.4rem;
+    }
+  }
+
+  .actions {
+    align-items: center;
+    display: flex;
+
+    button {
+      background: transparent;
+      border: none;
+      margin-left: .8rem;
     }
   }
 `;
