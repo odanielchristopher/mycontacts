@@ -9,8 +9,8 @@ export default styled.button`
   font-size: 1.6rem;
   font-weight: bold;
   height: 5.2rem;
+  padding: 0 1.6rem;
   transition: background .2s ease-in;
-  width: 100%;
 
   &:hover {
     background: ${({ theme }) => theme.colors.primary.light};
