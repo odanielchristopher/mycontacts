@@ -1,4 +1,6 @@
-import { Container, Header, ListContainer, Card } from './styles';
+import {
+  Container, Header, ListContainer, Card,
+} from './styles';
 
 import arrow from '../../assets/images/icon/arrow.svg';
 import edit from '../../assets/images/icon/edit.svg';

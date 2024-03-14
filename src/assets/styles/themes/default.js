@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 export default {
   colors: {
     background: '#F6F5FC',
@@ -8,8 +9,8 @@ export default {
       dark: '#3343F0',
     },
     gray: {
-      200: "#BCBCBC",
-      900: "#222",
-    }
-  }
+      200: '#BCBCBC',
+      900: '#222',
+    },
+  },
 };
