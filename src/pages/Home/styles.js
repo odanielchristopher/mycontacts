@@ -55,11 +55,11 @@ export const Header = styled.header`
   }
 `;
 
-export const ListContainer = styled.div`
+export const ListHeader = styled.header`
   margin-top: 2.4rem;
+  margin-bottom: .8rem;
 
-  header {
-    button {
+  button {
     align-items: center;
     background: transparent;
     border: none;
@@ -72,7 +72,11 @@ export const ListContainer = styled.div`
       font-weight: bold;
       margin-right: .8rem;
     }
-  }
+
+    img {
+      transition: transform .2s ease-in;
+      transform: ${({ orderBy }) => (orderBy === 'asc' ? 'rotate(180deg)' : 'rotate(0deg)')};
+    }
   }
 `;
 
