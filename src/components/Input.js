@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 
 export default styled.input`
+  appearance: none;
   background: #FFF;
   border: .2rem solid #FFF;
   border-radius: .4rem;
