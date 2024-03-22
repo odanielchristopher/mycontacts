@@ -5,6 +5,7 @@
     },
     "extends": [
         "plugin:react/recommended",
+        "plugin:react-hooks/recommended",
         "airbnb"
     ],
     "parserOptions": {
@@ -15,7 +16,8 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "react-hooks"
     ],
     "rules": {
       "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
@@ -23,6 +25,9 @@
       "import/prefer-default-export": "off",
       "react/jsx-no-bind": "off",
       "import/no-named-as-default": "off",
-      "import/no-named-as-default-member": "off"
+      "import/no-named-as-default-member": "off",
+      "class-methods-use-this": "off",
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn"
     }
 }
