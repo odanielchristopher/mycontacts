@@ -33,7 +33,7 @@ export const Header = styled.header`
   align-items: center;
   border-bottom: .2rem solid ${({ theme }) => theme.colors.gray[100]};
   display: flex;
-  justify-content: ${({ hasError }) => (hasError ? 'flex-end' : 'space-between')};
+  justify-content: ${({ justifyContent }) => justifyContent};
   margin-top: 3.2rem;
   padding-bottom: 1.6rem;
 
@@ -144,5 +144,34 @@ export const ErrorContainer = styled.div`
       font-size: 2.2rem;
       margin-bottom: .8rem;
     }
+  }
+`;
+
+export const EmptyListContainer = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.6rem;
+
+  p {
+    color: ${({ theme }) => theme.colors.gray[200]};
+    margin-top: .8rem;
+    text-align: center;
+
+    strong {
+      color: ${({ theme }) => theme.colors.primary.main};
+    }
+  }
+`;
+
+export const SearchNotFoundContainer = styled.div`
+  margin-top: 1.6rem;
+  align-items: flex-start;
+  display: flex;
+
+  span {
+    color: ${({ theme }) => theme.colors.gray[200]};
+    margin-left: 2.4rem;
+    word-break: break-word;
   }
 `;
