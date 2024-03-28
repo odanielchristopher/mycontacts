@@ -9,12 +9,8 @@ class ContactService {
     return this.httpClient.get(`/contacts?orderBy=${orderBy}`);
   }
 
-  async getContact() {
-    return this.httpClient.get('/contacts/');
-  }
-
-  async createContacts(contact) {
-    return this.httpClient.get('/contacts', contact);
+  async createContact(contact) {
+    return this.httpClient.post('/contacts', { body: contact });
   }
 }
 
