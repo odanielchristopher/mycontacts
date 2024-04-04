@@ -11,6 +11,7 @@ export const Container = styled.div`
   border-radius: .4rem;
   box-shadow: 0rem 2.0rem 2.0rem -1.6rem #00000040;
   color: #FFF;
+  cursor: pointer;
   display: flex;
   justify-content: center;
   gap: .8rem;
