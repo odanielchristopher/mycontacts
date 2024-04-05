@@ -27,6 +27,7 @@ import Loader from '../../components/Loader';
 import Button from '../../components/Button';
 
 import ContactsService from '../../services/ContactsService';
+import Modal from '../../components/Modal';
 
 export default function Home() {
   const [contacts, setContacts] = useState([]);
@@ -76,6 +77,18 @@ export default function Home() {
   return (
     <Container>
       <Loader isLoading={isLoading} />
+
+      <Modal
+        danger
+        title="Tem certeza que deseja remover esse contato?"
+        confirmLabel="Deletar"
+        onCancel={() => alert('Cancelou!')}
+        onConfirm={() => alert('Confirmou!')}
+      >
+        <p>
+          corpo do modal
+        </p>
+      </Modal>
 
       {(contacts.length > 0 && !hasError) && (
         <InputSearchContainer>

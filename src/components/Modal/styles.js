@@ -7,7 +7,7 @@ align-items: center;
   box-shadow: 0rem .4rem 1.0rem 0rem #0000000A;
   display: flex;
   justify-content: center;
-  position: absolute;
+  position: fixed;
   height: 100%;
   left: 0;
   top: 0;
@@ -22,15 +22,15 @@ export const Container = styled.div`
   max-width: 45.0rem;
   width: 100%;
 
-  h1 {
+  > h1 {
     font-size: 2.2rem;
     color: ${({ theme, danger }) => (
-      danger ? theme.colors.danger.main : theme.colors.gray[900]
-    )};
+    danger ? theme.colors.danger.main : theme.colors.gray[900]
+  )};
   }
 
-  p {
-    margin-top: .8rem;
+  .modal-body {
+    margin-top: 3.2rem;
   }
 `;
 
@@ -45,6 +45,6 @@ export const Footer = styled.footer`
     border: none;
     color: ${({ theme }) => theme.colors.gray[200]};
     font-size: 1.6rem;
-    margin-right: .8rem;
+    margin-right: 2.4rem;
   }
 `;
