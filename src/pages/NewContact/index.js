@@ -13,14 +13,12 @@ export default function NewContact() {
         category_id: formData.categoryId,
       };
 
-      const response = await ContactsService.createContact(contact);
+      await ContactsService.createContact(contact);
 
       toast({
         type: 'success',
         text: 'Contato cadastrado com sucesso!',
       });
-
-      console.log(response);
     } catch {
       toast({
         type: 'danger',
