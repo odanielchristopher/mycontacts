@@ -24,8 +24,8 @@ align-items: center;
   }
 
   &[disabled] {
-    background: ${({ theme }) => theme.colors.gray[400]};
-    cursor: default;
+    background: ${({ theme }) => theme.colors.gray[400]} !important;
+    cursor: default !important;
   }
 
   ${({ theme, danger }) => danger && css`
