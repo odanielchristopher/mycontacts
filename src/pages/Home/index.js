@@ -19,11 +19,11 @@ export default function Home() {
     isLoading,
     isDeleteModalVisible,
     isLoadingDelete,
+    hasError,
     contactBeingDeleted,
     contacts,
-    hasError,
-    searchTerm,
     filteredContacts,
+    searchTerm,
     orderBy,
     handleConfirmDeleteContact,
     handleChangeSearchTerm,
@@ -33,11 +33,15 @@ export default function Home() {
     handleDeleteContact,
   } = useHome();
 
+  const hasContacts = contacts.length > 0;
+  const isListEmpty = !hasError && (!isLoading && !hasContacts);
+  const isSearchEmpty = !hasError && (hasContacts && filteredContacts.length < 1);
+
   return (
     <Container>
       <Loader isLoading={isLoading} />
 
-      {(contacts.length > 0 && !hasError) && (
+      {(hasContacts && !hasError) && (
         <InputSearch
           value={searchTerm}
           onChange={handleChangeSearchTerm}
@@ -52,37 +56,34 @@ export default function Home() {
 
       {hasError && <ErrorStatus onTryAgain={handleTryAgain} />}
 
-      {!hasError && (
+      {isListEmpty && <EmptyList />}
+
+      {isSearchEmpty && <SearchNotFound searchTerm={searchTerm} />}
+
+      {hasContacts && (
         <>
-          {(contacts.length < 1 && !isLoading) && <EmptyList />}
+          <ContactsList
+            filteredContacts={filteredContacts}
+            orderBy={orderBy}
+            onToogleOrderBy={handleToogleOrderBy}
+            onDeleteContact={handleDeleteContact}
+          />
 
-          {(contacts.length > 0 && filteredContacts.length < 1) && (
-            <SearchNotFound searchTerm={searchTerm} />
-          )}
-
+          <Modal
+            danger
+            visible={isDeleteModalVisible}
+            isLoading={isLoadingDelete}
+            title={`Tem certeza que deseja remover o contato "${contactBeingDeleted?.name}"?`}
+            confirmLabel="Deletar"
+            onCancel={handleCloseDeleteModal}
+            onConfirm={handleConfirmDeleteContact}
+          >
+            <p>
+              Esta ação não poderá ser desfeita
+            </p>
+          </Modal>
         </>
       )}
-
-      <ContactsList
-        filteredContacts={filteredContacts}
-        orderBy={orderBy}
-        onToogleOrderBy={handleToogleOrderBy}
-        onDeleteContact={handleDeleteContact}
-      />
-
-      <Modal
-        danger
-        visible={isDeleteModalVisible}
-        isLoading={isLoadingDelete}
-        title={`Tem certeza que deseja remover o contato "${contactBeingDeleted?.name}"?`}
-        confirmLabel="Deletar"
-        onCancel={handleCloseDeleteModal}
-        onConfirm={handleConfirmDeleteContact}
-      >
-        <p>
-          Esta ação não poderá ser desfeita
-        </p>
-      </Modal>
     </Container>
   );
 }
