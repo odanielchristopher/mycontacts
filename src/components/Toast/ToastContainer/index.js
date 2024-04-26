@@ -6,17 +6,20 @@ import useToastContainer from './useToastContainer';
 
 export default function ToastContainer() {
   const {
-    messages,
-    handleRemoveMessage,
+    handleRemoveItem,
+    handleAnimationEnd,
+    renderList,
   } = useToastContainer();
 
   return (
     <Container>
-      {messages.map((message) => (
+      {renderList((message, { isLeaving }) => (
         <ToastMessage
           key={message.id}
           message={message}
-          onRemoveMessage={handleRemoveMessage}
+          onRemoveMessage={handleRemoveItem}
+          isLeaving={isLeaving}
+          onAnimationEnd={handleAnimationEnd}
         />
       ))}
     </Container>

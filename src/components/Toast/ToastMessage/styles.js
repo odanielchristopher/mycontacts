@@ -1,4 +1,26 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
+
+const MessageIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(10.0rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0rem);
+  }
+`;
+
+const MessageOut = keyframes`
+  from {
+    opacity: 1;
+    transform: translateY(0rem);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10.0rem);
+  }
+`;
 
 const ContainerVariants = {
   default: css`background: ${({ theme }) => theme.colors.primary.main};`,
@@ -8,6 +30,7 @@ const ContainerVariants = {
 
 export const Container = styled.div`
   align-items: center;
+  animation: ${MessageIn} 0.3s;
   border-radius: .4rem;
   box-shadow: 0rem 2.0rem 2.0rem -1.6rem #00000040;
   color: #FFF;
@@ -22,4 +45,6 @@ export const Container = styled.div`
   & + & {
     margin-top: 1.2rem;
   }
+
+  ${({ isLeaving }) => isLeaving && css`animation: ${MessageOut} 0.2s`};
 `;
